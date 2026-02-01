@@ -1,0 +1,251 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("heart-bg.jpg");
+    font-family: "Pixelify Sans", sans-serif;
+    overflow: hidden;
+}
+
+/* --- PASSCODE --- */
+#passcode-container {
+    display: flex; 
+    position: fixed;
+    inset: 0;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.passcode-window {
+    background-color: #fce4ec;
+    padding: 30px;
+    border-radius: 40px;
+    border: 8px solid white;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.photo-slideshow {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.passcode-photo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.passcode-photo.active { opacity: 1; }
+
+.keypad-section { display: flex; flex-direction: column; gap: 20px; }
+
+.password-display {
+    background: #f48fb1;
+    border-radius: 25px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#password-input {
+    background: transparent;
+    border: none;
+    color: white;
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 18px;
+    outline: none;
+    width: 150px;
+}
+
+.keypad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+
+.keypad button {
+    width: 75px;
+    height: 75px;
+    border-radius: 25px;
+    border: none;
+    background-color: #f48fb1;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* --- ENVELOPE --- */
+#envelope-container { 
+    display: none; 
+    text-align: center; 
+    cursor: pointer; 
+}
+
+#envelope { 
+    width: 400px; /* This changes the image size */
+    animation: pulse 1.5s infinite; 
+}
+
+#envelope-container p {
+    font-size: 50px; 
+    color: #0f0f0f;  
+}
+
+@keyframes pulse { 
+    0% { transform: scale(1); } 
+    50% { transform: scale(1.1); } 
+    100% { transform: scale(1); } 
+}
+/* --- LETTER --- */
+#letter-container { display: none; position: fixed; inset: 0; justify-content: center; align-items: center; }
+.letter-window {
+    width: 90vw;
+    max-width: 800px;
+    aspect-ratio: 3/2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url("window.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-top: 180px; /* This keeps text inside the pink window area */
+    transform: scale(1.1);
+    opacity: 0;
+    transition: all 0.6s ease;
+}
+
+.letter-window.open {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* This makes the cat small like your 2nd and 3rd pic */
+.letter-window .cat {
+    width: 180px !important; 
+    height: auto;
+    margin: 10px 0;
+}
+
+/* EXPLOSION & TAKEOVER */
+.cat.explosion-mode {
+    width: 80vw;
+    max-width: 500px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+
+.buttons { display: flex; justify-content: center; align-items: center; gap: 40px; position: relative; width: 100%; }
+.btn { width: 120px; cursor: pointer; }
+
+.yes-btn {
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.no-btn {
+    position: relative;
+    z-index: 10;
+    transition: transform 0.3s ease, left 0.3s ease;
+}
+
+/* FIX: Removes white background and centering giant YES */
+.yes-btn.takeover {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: 9999;
+    background-color: transparent !important;
+    object-fit: contain;
+}
+
+.final-text {
+    font-size: 18px;
+    color: #333;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+.heart-particle { position: fixed; color: #ff4d6d; font-size: 24px; z-index: 10000; animation: fly-up 5s linear forwards; }
+@keyframes fly-up { 0% { transform: translateY(0) rotate(0deg); opacity: 1; } 100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; } }
+
+/* Survey Specific Styles */
+#survey-container {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+    text-align: center;
+}
+
+.survey-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+#survey-question {
+    color: #ff4d6d;
+    font-size: 28px;
+    margin: 0;
+    text-shadow: 2px 2px white;
+}
+
+#question-text {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0;
+}
+
+/* Ensure survey buttons are side-by-side or stacked nicely */
+#survey-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.keypad-btn {
+    padding: 15px 40px;
+    margin: 10px;
+    border-radius: 50px;
+    border: 4px solid white;
+    background-color: #f48fb1;
+    color: white;
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.keypad-btn:hover {
+    background-color: #f06292;
+    transform: scale(1.05);
+}
+
+.keypad-btn:active {
+    transform: scale(0.9);
+}

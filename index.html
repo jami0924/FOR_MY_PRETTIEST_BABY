@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Valentine Letter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="passcode-container">
+        <div class="passcode-window">
+            <div class="photo-slideshow">
+                <img src="1.png" class="passcode-photo active" />
+                <img src="2.png" class="passcode-photo" />
+            </div>
+            <div class="keypad-section">
+                <div class="password-display">
+                    <span class="lock-icon">🔒</span>
+                    <input type="text" id="password-input" placeholder="Enter Anniv date" readonly />
+                </div>
+                <div class="keypad">
+                    <button onclick="appendNum('1')">1</button>
+                    <button onclick="appendNum('2')">2</button>
+                    <button onclick="appendNum('3')">3</button>
+                    <button onclick="appendNum('4')">4</button>
+                    <button onclick="appendNum('5')">5</button>
+                    <button onclick="appendNum('6')">6</button>
+                    <button onclick="appendNum('7')">7</button>
+                    <button onclick="appendNum('8')">8</button>
+                    <button onclick="appendNum('9')">9</button>
+                    <button onclick="clearPass()">*</button>
+                    <button onclick="appendNum('0')">0</button>
+                    <button onclick="checkPass()">Enter</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div id="survey-container" style="display: none;">
+    <div class="survey-content">
+        <h1 id="survey-question">QUICK survey to see if you're really my kabab!</h1>
+        <img src="cat_heart.gif" class="cat" id="survey-cat" />
+        <div id="question-text"></div>
+        <div class="buttons" id="survey-buttons">
+            </div>
+        <button id="survey-next" class="keypad-btn" style="display: none;" onclick="showEnvelope()">NEXT ➔</button>
+    </div>
+</div>
+    <div id="envelope-container" style="display: none; text-align: center;">
+        <img src="envelope.png" alt="Envelope" id="envelope" />
+        <p style="font-size: 24px;">♡ Letter for my one and only PRETTIEST KAB ♡</p>
+    </div>
+
+    <div id="letter-container" style="display: none;">
+        <div class="letter-window"> 
+            <h1 id="letter-title">Will you be my Valentine?</h1>
+            <img src="cat_heart.gif" class="cat" id="letter-cat" />
+            <div class="buttons" id="letter-buttons">
+                <img src="yes.png" class="btn yes-btn" alt="Yes" />
+                <div class="no-wrapper">
+                    <img src="no.png" class="btn no-btn" alt="No" />
+                </div>
+            </div>
+            <p id="final-text" class="final-text" style="display: none">
+                <strong>Valentine Date:</strong> Jiang Nan / Feb 10 / 10PM. See you my baby!
+            </p>
+        </div>
+    </div>
+
+<audio id="bg-music" loop>
+        <source src="song.mp3" type="audio/mpeg">
+    </audio>
+    
+    <audio id="click-sound">
+        <source src="click.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+  </body>
+</html>
