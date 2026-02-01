@@ -78,8 +78,8 @@ function handleSurvey(choice) {
             surveyNext.style.display = "block";
         }
     } else {
-        surveyTitle.textContent = "I promise you'll like it";
-        questionText.textContent = "i made it only for you";
+        surveyTitle.textContent = "ENGKKKKKKKK!!!!!";
+        questionText.textContent = "Try again my Babysaur!!";
         surveyButtons.innerHTML = `<button class="keypad-btn" onclick="startSurvey()">ANOTHER CHANCE</button>`;
     }
 }
