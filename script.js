@@ -79,7 +79,7 @@ function handleSurvey(choice) {
         }
     } else {
         surveyTitle.textContent = "ENGKKKKKKKK!!!!!";
-        questionText.textContent = "Try again my Babysaur!!";
+        questionText.textContent = "Try again my Babysaur!!!";
         surveyButtons.innerHTML = `<button class="keypad-btn" onclick="startSurvey()">ANOTHER CHANCE</button>`;
     }
 }
